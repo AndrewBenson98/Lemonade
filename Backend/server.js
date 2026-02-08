@@ -1,11 +1,13 @@
 const { getBeverages, addBeverage } = require('./services/beverageService.js');
 const { getOrders, addOrder } = require('./services/orderService.js');
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+app.use(cors());
 
 // 1. GET Endpoint - Returns a simple message
 app.get('/api/v1/beverages', (req, res) => {
